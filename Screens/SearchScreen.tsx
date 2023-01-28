@@ -3,7 +3,6 @@ import {View, Text, StyleSheet, ImageBackground, Button, Image, FlatList} from '
 import LinearGradient from 'react-native-linear-gradient';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
-// import { HermesBadge } from "react-native/Libraries/NewAppScreen";
 import Entypo from 'react-native-vector-icons/Entypo'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -36,8 +35,8 @@ type ItemProps = {
 };
 
 const Item = ({index, title, likes}: ItemProps) => (
-    <View style={{flex:1, flexDirection:'row', margin:10, marginHorizontal:30, alignItems:'center'}}>
-        <Text style={{fontSize: 18, color:'white', justifyContent:'center', alignContent:'center', textAlign:'center', padding:10}}>{index}</Text>
+    <View style={{flex:1, flexDirection:'row', margin:10, marginHorizontal:0, alignItems:'center'}}>
+        <Text style={{fontSize: 14, color:'white', justifyContent:'center', alignContent:'center', textAlign:'center', padding:10}}>{index}</Text>
         <Image 
             style={{width:45, height:45, marginHorizontal:10}}
             source={require('../assets/imgs/bg.jpg')}/>
@@ -52,7 +51,6 @@ const Item = ({index, title, likes}: ItemProps) => (
 
 const SearchScreen = () =>{
     const renderItem = (item :ItemProps) => <Item index={item.index} title={item.title} likes={item.likes} />
-    
     return(
         <>
             <View style={{flex:1, }}>
@@ -60,6 +58,7 @@ const SearchScreen = () =>{
                 source={require('../assets/imgs/bg.jpg')}
                 style={styles.bg_img}
                 resizeMode='cover'
+            
                 >
                     <Ionicons name="chevron-back-outline" size={32} color="#fff" style={[styles.backBtn, {margin:30}]} />
                     <Text style={ styles.heading}>High Klassified</Text>
@@ -71,7 +70,7 @@ const SearchScreen = () =>{
                     colors={[ '#343434', '#000000']}>
                         <View style={{
                         flex:.35,  
-                        paddingHorizontal:30, 
+                        paddingHorizontal:10, 
                         paddingVertical:0, 
                         flexDirection:'row', 
                         justifyContent:'space-between',
@@ -96,7 +95,7 @@ const SearchScreen = () =>{
                             
                         </View>
                                 
-                        <View style={[{flex:.2, flexDirection:"row", padding:20, paddingHorizontal:30}]}>
+                        <View style={[{flex:.2, flexDirection:"row", padding:20, paddingHorizontal:10}]}>
                             <View >
                                 <Image 
                                     source={require('../assets/imgs/bg.jpg')}
@@ -107,8 +106,7 @@ const SearchScreen = () =>{
                                 </View>
                             </View>
                             <View style={{marginHorizontal:10 , flex:.8, flexDirection:"column", padding:10}}>
-                                {/* <Text style={{color:"white", fontFamily:'ProductSansRegular',  fontSize: 16}}>Izingoma Ezithandiwe</Text> */}
-                                <Text style={{color:"white",  fontSize: 16}}>Izingoma Ezithandiwe</Text>
+                                <Text style={{color:"white", fontFamily:'ProductSans-Regular',  fontSize: 16}}>Izingoma Ezithandiwe</Text>
                                 <View style={{flex:1, flexDirection:"row", alignItems:"center", }}>
                                     <Text style={{color:'#fff6', fontSize: 14}}>5 izingoma </Text>
                                     <View style={[styles.dot, {width:5, height:5, marginHorizontal:2}]}/>
@@ -120,7 +118,7 @@ const SearchScreen = () =>{
                             </View>
                         </View>
                         <View style={{flex:.6, }}>
-                            <Text style={{fontSize: 24, color:'white', fontWeight:'bold', paddingHorizontal:30}}>Okudumile</Text>
+                            <Text style={{fontSize: 24, color:'white', fontWeight:'bold', paddingHorizontal:10}}>Okudumile</Text>
                             <FlatList
                                 style={{ padding:0, margin:0, marginTop:20, flex:1}}
                                 data={Data}
@@ -140,16 +138,16 @@ const SearchScreen = () =>{
 
 const styles = StyleSheet.create({
     bg_img:{
+        top:0,
         flex:.6, 
-        width:"100%", 
-        height:"100%", 
+        scaleY:5,
         overflow:"hidden",
     },
     heading:{
         fontSize: 45, 
-        // fontFamily: "ProductSansBlack",
+        fontFamily: "ProductSans-Black",
         color:'white', 
-        top: "80%",
+        top: "83%",
         fontWeight:"bold",
         position:'relative',
         paddingHorizontal:35,
@@ -222,8 +220,8 @@ const styles = StyleSheet.create({
         padding:2,
         margin:0,
         color:'white',
-        // fontFamily: 'ProductSansLight',
-        fontSize: 16,
+        fontFamily: 'ProductSans-medium',
+        fontSize: 14,
         textAlign:'left',
         fontWeight:'bold',
         justifyContent:'center',
@@ -232,7 +230,7 @@ const styles = StyleSheet.create({
     },
     itemLikes:{
         color:'#fff6',
-        // fontFamily:'ProductSansRegular',
+        fontFamily:'ProductSans-Regular',
         fontSize: 16,
         padding:2,
     }
